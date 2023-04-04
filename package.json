@@ -11,6 +11,7 @@
     "pods": "cd ios && pod install && cd .."
   },
   "dependencies": {
+    "@react-native-firebase/app": "^17.4.1",
     "react": "18.2.0",
     "react-native": "0.71.5"
   },
