@@ -41,7 +41,6 @@ const CustomButton = ({
           </TextWrapper>
         )
       )}
-
       {children}
     </TouchableOpacity>
   );

@@ -32,10 +32,8 @@ const useLoginForm = () => {
       await AuthAPI.login({email, password});
     } catch (e) {
       const error = e as FirebaseAuthTypes.NativeFirebaseAuthError;
-      if (
-        error.code === 'auth/invalid-email' ||
-        error.code === 'auth/wrong-password'
-      ) {
+
+      if (['auth/invalid-email', 'auth/wrong-password'].includes(error.code)) {
         setError('Your email or password was incorrect');
       } else if (error.code === 'auth/email-already-in-use') {
         setError('An account with this email already exists');

@@ -20,11 +20,13 @@ enum DatabaseEndpoints {
 class DatabaseAPI {
   static incrementRefValue = async (refCode: string) => {
     const res = await db.ref(DatabaseEndpoints.users).once('value');
+
     for (const [key, {code, invited}] of Object.entries<UserInfo>(res.val())) {
       if (code === refCode) {
         await db
           .ref(`${DatabaseEndpoints.users}${key}`)
           .update({invited: invited + 1});
+        break;
       }
     }
   };

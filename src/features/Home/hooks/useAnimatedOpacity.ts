@@ -18,6 +18,7 @@ const useAnimatedOpacity = ({isLoading}: UseAnimatedListType) => {
       opacityValue.value = 0;
     }
   }, [opacityValue, isLoading]);
+
   return {animatedOpacityStyle};
 };
 
